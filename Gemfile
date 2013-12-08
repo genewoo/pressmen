@@ -7,7 +7,6 @@ gem 'rails', '3.2.16'
 
 gem 'pg'
 
-
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -21,6 +20,31 @@ group :assets do
 end
 
 gem 'jquery-rails'
+
+
+gem 'devise',               '~> 2.0.4'
+
+# upgrading to newer versions of these gems caused new github accounts to not be able to
+# sign in / create an account on our side
+gem 'oauth2',               '~> 0.6.1'
+gem 'omniauth-oauth2',      '~> 1.0.2'
+gem 'omniauth-github',      '~> 1.0.1'
+gem 'unicorn'
+
+group :development, :test do
+  gem 'thin',               '~> 1.3.1'
+  gem 'pry'
+end
+
+group :test do
+  gem 'mocha',             '~> 0.10.0'
+  gem 'webmock',           '~> 1.7.7'
+  gem 'guard'
+end
+
+group :development do
+  gem 'foreman',            '~> 0.36.0'
+end
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
